@@ -3,6 +3,7 @@ const router = express.Router();
 // const { Video } = require("../models/Video");
 const multer = require('multer');
 var ffmpeg = require('fluent-ffmpeg');
+const { Video } = require('../models/Video');
 
 // STORAGE MULTER CONFIG
 var storage = multer.diskStorage({
@@ -73,6 +74,17 @@ router.post("/thumbnail", (req, res) => {
 
 });
 
+router.post("/uploadVideo", (req, res) => {
+        
+    // 비디오 정보들을 저장한다.
+
+    const video = new Video(req.body)
+    video.save((err,doc)=>{
+        if(err) return res.json({success:false, err})
+        res.status(200).json({success:true})
+    })
+
+});
 
 
 module.exports = router;
