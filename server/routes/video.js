@@ -122,7 +122,7 @@ router.post("/getSubscriptionVideos", (req, res) => {
         })
 
     //찾은 사람들의 비디오를 가지고 온다.
-            Video.find({wrtier:{$in:subscribedUser}})
+            Video.find({writer:{$in:subscribedUser}})
             .populate('writer')
             .exec((err,videos)=>{
                 if(err) return res.status(400).send(err)

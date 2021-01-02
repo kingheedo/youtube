@@ -5,7 +5,7 @@ const {Subscriber} = require('../models/Subscriber')
 // ============================================
 //                  Subscribe
 // ============================================
-router.post('/subscriberNumber',(req,res)=>{
+router.post('/subscribeNumber',(req,res)=>{
     Subscriber.find({'userTo': req.body.userTo})
     .exec((err,subscribe)=>{
         if(err) return res.status(400).send(err);

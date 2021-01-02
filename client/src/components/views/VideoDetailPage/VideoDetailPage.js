@@ -38,7 +38,7 @@ function VideoDetailPage(props) {
         setComments(Comments.concat(newComment))
     }
     if(VideoDetail.writer){
-        const subscribeButton = VideoDetail.writer._id !== localStorage.getItem('userId') &&  <Subscriber userTo={VideoDetail.writer._id} userfrom={localStorage.getItem('userId')}/>
+        const subscribeButton = VideoDetail.writer._id !== localStorage.getItem('userId') &&  <Subscriber userTo={VideoDetail.writer._id} userFrom={localStorage.getItem('userId')}/>
         return (
             <Row gutter={[16,16]}>
                 <Col lg={18} xs={24}>

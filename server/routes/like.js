@@ -30,9 +30,9 @@ router.post("/getDislikes", (req, res) => {
         variable={commentId:req.body.commentId}
     }
     Dislike.find(variable)
-    .exec((err, dislike)=>{
+    .exec((err, dislikes)=>{
         if(err) return res.status(400).send(err)
-        res.status(200).json({success:true, dislike})
+        res.status(200).json({success:true, dislikes})
     })
 });
 
